@@ -25,6 +25,16 @@ router.get('/', function (req, res, next) {
     })
     .catch(error => console.log(error));
 });
+router.get('/allusers', function (req, res, next) {
+  User.find()
+   
+      .then(users => {
+        res
+        .status(201)
+        .json(users)
+    })
+    .catch(error => console.log(error));
+});
 
 router.post('/', async (req, res, next) =>{
   console.log(req.body)
